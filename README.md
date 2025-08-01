@@ -91,13 +91,15 @@ http://localhost:3000
 ```
 
 ### 🌐 **Deploy**
-- Compatível com GitHub Pages, Netlify, Vercel
-- Heroku, Railway para deploy com Node.js
-- Fácil configuração de variáveis de ambiente
+- ✅ **GitHub Pages**: Configurado e pronto para uso
+- 🚀 **URL ao vivo**: https://fehnox.github.io/portifolio/
+- 📱 **Mobile-friendly**: Totalmente responsivo
+- ⚡ **Deploy automático**: A cada push no repositório
 
 ### ⚙️ **Scripts Disponíveis**
-- `npm start` - Inicia o servidor de produção
-- `npm run dev` - Inicia em modo desenvolvimento com nodemon
+- `npm start` - Inicia o servidor de desenvolvimento local
+- `npm run dev` - Modo desenvolvimento com nodemon
+- **GitHub Pages** - Deploy automático (sem necessidade de build)
 
 ## 🛠️ Tecnologias Utilizadas
 

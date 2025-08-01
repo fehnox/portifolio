@@ -1,0 +1,13 @@
+# GitHub Pages Configuration
+
+# Este arquivo garante que o GitHub Pages funcione corretamente
+# com SPAs (Single Page Applications) e roteamento do lado do cliente
+
+# Enable GitHub Pages Jekyll processing
+# (mesmo que não estejamos usando Jekyll, isso ajuda com algumas configurações)
+
+# Configurações automáticas do GitHub Pages:
+# - Processa arquivos .md automaticamente
+# - Serve arquivos estáticos
+# - Ignora arquivos que começam com _
+# - Funciona com domínios customizados

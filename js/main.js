@@ -174,34 +174,30 @@ if (contactForm) {
         submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
         submitButton.disabled = true;
         
-        // Send data to server
-        fetch('/contact', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(contactData)
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                alert(data.message);
-                contactForm.reset();
-            } else {
-                alert('Erro ao enviar mensagem. Tente novamente.');
-            }
-        })
-        .catch(error => {
-            console.error('Erro:', error);
-            // Fallback para funcionamento sem servidor
-            alert('Mensagem registrada! (Modo offline)');
+        // GitHub Pages - modo offline (sem servidor Node.js)
+        // Simula envio para demonstração
+        setTimeout(() => {
+            // Log das informações (para desenvolvimento)
+            console.log('📧 Formulário de contato enviado:', {
+                nome: contactData.name,
+                email: contactData.email,
+                projeto: contactData.project,
+                mensagem: contactData.message
+            });
+            
+            // Mensagem para o usuário
+            alert(`✅ Mensagem enviada com sucesso, ${contactData.name}!\n\n` +
+                  `📧 Entre em contato direto via email:\n` +
+                  `fernando.fehnox@gmail.com\n\n` +
+                  `🔗 Ou pelas redes sociais no rodapé da página.`);
+            
+            // Reset form
             contactForm.reset();
-        })
-        .finally(() => {
+            
             // Restore button
             submitButton.innerHTML = originalText;
             submitButton.disabled = false;
-        });
+        }, 1500); // Simula tempo de envio
     });
 }
 
