@@ -5,9 +5,9 @@
 Para personalizar completamente o portfólio, adicione as seguintes imagens na pasta `img/`:
 
 ### 📸 **Projetos** (formato recomendado: .jpg ou .png, 600x400px)
-- `portfolio1.jpg` - Screenshot do primeiro projeto
-- `portfolio2.jpg` - Screenshot do segundo projeto  
-- `portfolio3.jpg` - Screenshot do terceiro projeto
+- `totodoro.jpg` - Screenshot do projeto Totodoro (Pomodoro Totoro)
+- `contador-pessoas.jpg` - Screenshot do Contador de Pessoas IA
+- `site-totoro.jpg` - Screenshot do Site Totoro temático
 
 ### 👤 **Foto de Perfil** (formato: .jpg, 300x300px)
 - `profile.jpg` - Sua foto profissional
@@ -37,12 +37,12 @@ Para personalizar completamente o portfólio, adicione as seguintes imagens na p
 ```
 assets/
 ├── img/
-│   ├── portfolio1.jpg
-│   ├── portfolio2.jpg
-│   ├── portfolio3.jpg
-│   └── profile.jpg
-├── cv.pdf
-└── favicon.ico
+│   ├── totodoro.jpg           # Projeto Totodoro
+│   ├── contador-pessoas.jpg   # Sistema de contagem IA
+│   ├── site-totoro.jpg        # Website temático
+│   └── profile.jpg            # Foto do Fernando
+├── cv.pdf                     # CV do Fernando Brigida
+└── favicon.ico                # Ícone personalizado
 ```
 
 ## 🔧 Próximos Passos
