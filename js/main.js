@@ -82,8 +82,13 @@ window.addEventListener('scroll', scrollHeader)
 /*==================== SHOW SCROLL UP ====================*/ 
 function scrollUp(){
     const scrollUp = document.getElementById('scroll-up');
-    // When the scroll is higher than 560 viewport height, add the show-scroll class to the a tag with the scroll-top class
-    if(this.scrollY >= 560) scrollUp.classList.add('show-scroll'); else scrollUp.classList.remove('show-scroll')
+    if (!scrollUp) return;
+    // Mostra o botão apenas se não estiver no topo
+    if (window.pageYOffset > 80) {
+        scrollUp.classList.add('show-scroll');
+    } else {
+        scrollUp.classList.remove('show-scroll');
+    }
 }
 window.addEventListener('scroll', scrollUp)
 
@@ -118,6 +123,14 @@ themeButton.addEventListener('click', () => {
 })
 
 /*==================== SMOOTH SCROLLING ====================*/
+// Scroll suave ao clicar no botão de seta para cima
+const scrollUpBtn = document.getElementById('scroll-up');
+if (scrollUpBtn) {
+    scrollUpBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
