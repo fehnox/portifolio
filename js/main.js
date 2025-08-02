@@ -80,14 +80,21 @@ function scrollHeader(){
 window.addEventListener('scroll', scrollHeader)
 
 /*==================== SHOW SCROLL UP ====================*/ 
+let scrollUpClicked = false; // Flag para controlar se o botão foi clicado
+
 function scrollUp(){
     const scrollUp = document.getElementById('scroll-up');
-    if (!scrollUp) return;
-    // Mostra o botão apenas se não estiver no topo
+    if (!scrollUp || scrollUpClicked) return; // Não executa se foi clicado
+    
     if (window.pageYOffset > 80) {
-        scrollUp.classList.add('show-scroll');
+        scrollUp.classList.remove('hide-scroll');
+        scrollUp.style.display = 'block';
+        setTimeout(() => {
+            scrollUp.classList.add('show-scroll');
+        }, 10);
     } else {
         scrollUp.classList.remove('show-scroll');
+        scrollUp.classList.add('hide-scroll');
     }
 }
 window.addEventListener('scroll', scrollUp)
@@ -123,12 +130,53 @@ themeButton.addEventListener('click', () => {
 })
 
 /*==================== SMOOTH SCROLLING ====================*/
-// Scroll suave ao clicar no botão de seta para cima
+// Scroll suave ao clicar no botão de seta para cima com animação espiral
 const scrollUpBtn = document.getElementById('scroll-up');
 if (scrollUpBtn) {
     scrollUpBtn.addEventListener('click', function(e) {
         e.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        
+        // Ativa a flag para evitar interferência da função scrollUp
+        scrollUpClicked = true;
+        
+        // Adiciona animação de clique imediata
+        scrollUpBtn.style.transform = 'scale(0.95) rotate(180deg)';
+        scrollUpBtn.style.transition = 'transform 0.15s ease';
+        
+        setTimeout(() => {
+            scrollUpBtn.style.transform = 'scale(1) rotate(0deg)';
+        }, 150);
+        
+        // Scroll suave para o topo
+        window.scrollTo({ 
+            top: 0, 
+            behavior: 'smooth' 
+        });
+        
+        // Executa a animação espiral após o scroll
+        setTimeout(() => {
+            console.log('Iniciando animação espiral...'); // Para debug
+            
+            // Remove todas as classes e estilos anteriores
+            scrollUpBtn.classList.remove('show-scroll', 'hide-scroll');
+            scrollUpBtn.style.transition = '';
+            scrollUpBtn.style.transform = '';
+            
+            // Aplica a animação espiral
+            scrollUpBtn.style.animation = 'spiralOut 1.2s cubic-bezier(.68,-0.55,.27,1.55) forwards';
+            
+            // Após a animação, esconde completamente e reseta
+            setTimeout(() => {
+                scrollUpBtn.style.display = 'none';
+                scrollUpBtn.style.animation = '';
+                scrollUpBtn.classList.add('hide-scroll');
+                
+                // Reseta a flag após um tempo para permitir que o botão apareça novamente
+                setTimeout(() => {
+                    scrollUpClicked = false;
+                }, 2000);
+            }, 1200);
+        }, 1000);
     });
 }
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
