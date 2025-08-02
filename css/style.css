@@ -81,6 +81,32 @@ body.dark-theme {
     --scroll-bar-color: hsl(var(--hue-color), 12%, 48%);
     --scroll-thumb-color: hsl(var(--hue-color), 12%, 36%);
 }
+/*==================== BOTÃO TEMA ISOLADO ====================*/
+.theme-btn-wrapper {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    z-index: 1001;
+    background: var(--body-color);
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-btn-wrapper .change-theme {
+    font-size: 2.2rem;
+    color: var(--first-color);
+    cursor: pointer;
+    transition: color 0.3s, transform 0.3s;
+    margin: 0;
+}
+.theme-btn-wrapper .change-theme:hover {
+    color: var(--first-color-alt);
+    transform: scale(1.15) rotate(-15deg);
+}
 
 /*========== Button Dark/Light ==========*/
 .nav__btns {
@@ -93,6 +119,7 @@ body.dark-theme {
     color: var(--title-color);
     margin-right: var(--mb-1);
     cursor: pointer;
+    /* sobrescrito se estiver dentro do .theme-btn-wrapper */
 }
 
 .change-theme:hover {
