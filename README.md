@@ -13,7 +13,6 @@
   [![Responsive](https://img.shields.io/badge/Responsive-Design-00C851?style=flat-square&logo=responsive&logoColor=white)](#)
   
 </div>
-
 ## 👨‍💻 Sobre Fernando
 
 **Fernando Brigida** é um desenvolvedor Front-End e estudante de Engenharia de Telecomunicações pela UFPA (Universidade Federal do Pará). Localizado em Belém-PA, Brasil, Fernando tem paixão por criar interfaces modernas, responsivas e com foco na experiência do usuário.
